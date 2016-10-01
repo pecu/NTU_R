@@ -8,7 +8,15 @@ Licence URI: http://www.os-templates.com/template-terms
 File: Tables CSS
 */
 
-table{width:100%; border-collapse:collapse; table-layout:auto; vertical-align:top; margin-bottom:15px; border:1px solid #CCCCCC;}
+table{
+	align-self: center;
+	width:80%; 
+	border-collapse:collapse; 
+	table-layout:auto; 
+	vertical-align:top; 
+	margin-bottom:15px; 
+	border:1px 
+	solid #333333;}
 th{color:#FFFFFF; background-color:#666666; border:1px solid #CCCCCC; border-collapse:collapse; text-align:center; table-layout:auto; vertical-align:middle;}
 td{vertical-align:top; border-collapse:collapse; border-left:1px solid #CCCCCC; border-right:1px solid #CCCCCC;}
 th, td{padding:5px; border-collapse:collapse;}
