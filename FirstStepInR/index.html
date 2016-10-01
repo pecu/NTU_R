@@ -85,6 +85,7 @@ jQuery(function () {
     d3.text("movie.csv", function(data) {
         var parsedCSV = d3.csv.parseRows(data);
         var container = d3.select("body")
+            .append("center")
             .append("table")
             .selectAll("tr")
                 .data(parsedCSV).enter()
