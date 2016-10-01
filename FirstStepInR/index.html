@@ -8,7 +8,8 @@ Licence URI: http://www.os-templates.com/template-terms
 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Realistic</title>
+<title>Pecu's Crawler</title>
+<script src="//d3js.org/d3.v3.min.js?v=3.2.8" charset="utf-8"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link rel="stylesheet" href="layout/styles/layout.css" type="text/css" />
 <script type="text/javascript" src="layout/scripts/jquery.min.js"></script>
@@ -84,9 +85,7 @@ jQuery(function () {
 <div class="wrapper">
   <div class="container">
     <div class="whitebox" id="hpage_services">
-        <script src="d3.min.js?v=3.2.8"></script>
-
-        <script type="text/javascript"charset="utf-8">
+        <script type="text/javascript" charset="utf-8">
             d3.text("movie.csv", function(data) {
                 var parsedCSV = d3.csv.parseRows(data);
 
