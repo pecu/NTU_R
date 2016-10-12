@@ -1,0 +1,47 @@
+#data_display{
+  width: 100%;
+  margin-top: 10px;
+  height: 500px;
+  background: white;
+  border: 2px solid black;
+  border-style:dashed;
+}
+#可刪除文字{
+  font-family:"微軟正黑體";
+  font-size:30px;
+  margin-top: 10px;
+  text-align: center;
+}
+.ad{
+  width:100%;
+  height: 100px;
+  margin-top: 10px;
+}
+
+.member{
+  width: 98%;
+  border:3px solid black;
+  border-style: double;
+  padding: 5px;
+  text-align: center;
+}
+.person{
+  display: inline-block;
+  width: 16%;
+}
+.name{
+  text-align: center;
+  font-weight:bold;
+  font-family:"daty7";
+}
+.image{
+  text-align: center;
+  
+}
+.contact-word{
+  text-align:center;
+  margin-top:3px;
+}
+#feedback{
+  font-family:"微軟正黑體";
+}
