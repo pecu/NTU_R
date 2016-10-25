@@ -16,10 +16,15 @@ url    = paste0(prefex, attrs, token)
 res    = GET(url)
 data   = content(res)
 groups = matrix(unlist(data$data))
-
 after  = data$paging$cursors$after
-
-nexturl= paste0(url, "&after=", after)
-nextres= GET(nexturl)
-ndata  = content(nextres)
-ngroups= matrix(unlist(ndata$data))
+nextflg= data$paging[2]
+  
+while( nextflg != "" )
+{
+  nexturl= paste0(url, "&after=", after)
+  nextres= GET(nexturl)
+  ndata  = content(nextres)
+  ngroups= matrix(unlist(ndata$data))
+  after  = ndata$paging$cursors$after
+  nextflg= data$paging[2]
+}
