@@ -1,0 +1,245 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>颱風租屋網</title>
+  <link href="./style/style.css" rel="stylesheet" type="text/css">
+  <script async src="./js/index.js"></script>
+</head>
+<body bgcolor="#FFFFBB">
+  <!-- <div class="box">
+  <div class="logo">
+  <img src="http://images.shejidaren.com/wp-content/uploads/2014/06/030333ffp.jpg" alt="logo" class="photo"/>
+    <a href="##"></a>
+  </div>
+  <span class="right-2">
+    <span class="box1"></span>
+    <span class="box1"></span>
+    <span class="box1">
+      <input type="text" class="search"/>
+    </span>
+  </div>
+  </div> -->
+ <table width="800px" height="200px" >
+  <tr>
+   <td>
+    <img src="http://www.uuna.info/wp-content/uploads/2015/07/PAqNtTkY.jpeg" alt="logo" width="400px" height="200px" />
+   </td>
+    <td>
+     <table width="400px" height="200px">
+       <tr>
+         <div id="clock"></div>
+         </tr>
+      <tr>
+        <td>待出租屋件數：</td>
+      </tr>
+      <tr>
+        <td><a href="">追蹤清單</a>
+        <a href="">登入</a>
+        <a href="">註冊</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+<!--         <input type="search" width="200px" height="40px"/></td> -->
+        <input type="text" />
+          <input type="button" value="search"/>
+       
+       
+      </tr>
+      </table>
+    </td>
+   </tr>
+  </table>
+  <div id="all">
+  <div id="selection">
+    <div id="front">
+<p>請勾選以下篩選條件：
+   </p>
+
+<form id="entryForm" action="#" method="post">
+<table border="1">
+ <tr>
+  <th>地區：</th>
+  <td>
+  	<select name="pref">
+  	 <option value="" selected>請選擇</option>
+  	 <option value="北部">北部</option>
+  	 <option value="中部">中部</option>
+  	 <option value="南部">南部</option>
+  	 <option value="東部">東部</option>
+  	</select>
+  </td>
+ </tr>
+
+ <tr>
+  <th>房型：</th>
+  <td>
+   <input type="checkbox" name="type1" value="整層住家">整層住家
+   <input type="checkbox" name="type2" value="獨立套房">獨立套房
+   <input type="checkbox" name="type3" value="分租套房">分租套房
+   <input type="checkbox" name="type4" value="雅房">雅房
+   <input type="checkbox" name="type5" value="店面">店面
+   <input type="checkbox" name="type6" value="商用">商用
+   <input type="checkbox" name="type6" value="廠房">廠房
+   <input type="checkbox" name="type6" value="車位">車位
+  </td>
+ </tr>
+
+<tr>
+  <th>租金：</th>
+  <td>
+   <input type="checkbox" name="rent1" value="不限">不限
+   <input type="checkbox" name="rent2" value="低於5000">低於5000
+   <input type="checkbox" name="rent3" value="5000-9999">5000-9999
+   <input type="checkbox" name="rent4" value="10000-14999">10000-14999
+   <input type="checkbox" name="rent5" value="15000-19999">15000-19999
+   <input type="checkbox" name="rent6" value="20000以上">20000以上
+  </td>
+ </tr>
+
+<tr>
+ <th>性別限制：</th>
+  <td>
+   <input type="checkbox" name="gender0" value="不限男女">不限男女
+   <input type="checkbox" name="gender1" value="限女性">限女性
+   <input type="checkbox" name="gender2" value="限男性">限男性
+  </td>
+ </tr>
+
+<tr>
+ <th>房數：</th>
+  <td>
+  	<select name="pref">
+  	 <option value="不限" selected>不限</option>
+  	 <option value="1房">1房</option>
+  	 <option value="2房">2房</option>
+  	 <option value="3房">3房</option>
+  	 <option value="4房以上">4房以上</option>
+  	</select>
+  </td>
+ </tr>
+
+ <tr>
+  <th>坪數：</th>
+   <td>
+  	<select name="pref">
+  	 <option value="不限" selected>不限</option>
+  	 <option value="20坪以下">20坪以下</option>
+  	 <option value="20-30坪">20-30坪</option>
+  	 <option value="30-40坪">30-40坪</option>
+  	 <option value="40-50坪">40-50坪</option>
+  	 <option value="50坪以上">50坪以上</option>
+  	</select>
+   </td>
+ </tr> 
+
+<tr>
+  <th>樓層：</th>
+  <td>
+  <textarea name="lower_floor" rows="1" cols="2"></textarea>~<textarea name="higher_floor" rows="1" cols="2"></textarea>
+  </td>
+ </tr>
+
+<tr>
+  <th>提供設備：</th>
+  <td>
+   <input type="checkbox" name="equipment1" value="電視">電視
+   <input type="checkbox" name="equipment2" value="冷氣">冷氣
+   <input type="checkbox" name="equipment3" value="冰箱">冰箱
+   <input type="checkbox" name="equipment4" value="熱水器">熱水器
+   <input type="checkbox" name="equipment5" value="洗衣機">洗衣機
+   <input type="checkbox" name="equipment6" value="天然瓦斯">天然瓦斯
+   <input type="checkbox" name="equipment7" value="第四台">第四台
+   <input type="checkbox" name="equipment8" value="網路">網路
+  </td>
+ </tr>
+
+<tr>
+  <th>其他條件：</th>
+  <td>
+   <input type="checkbox" name="condition1" value="有陽台">有陽台
+   <input type="checkbox" name="condition2" value="可開伙">可開伙
+   <input type="checkbox" name="condition3" value="可養寵物">可養寵物
+   <input type="checkbox" name="condition4" value="近捷運站">近捷運站
+   <input type="checkbox" name="condition5" value="可短期租賃">洗可短期租賃
+  </td>
+ </tr>
+  <tr>
+    <td>
+      <input type="reset" name="清除重填">
+ <input type="submit" name="送出">
+    </td>
+  </tr>
+</table>
+</form>
+      </div>
+</div> 
+<div id="data_display">
+  <div id="可刪除文字">
+  這裡呈現篩選過後的房屋資料
+    </div>
+</div>
+    <div class="contact">
+    <div class="contact-word">
+      <span class="image"><img class="image" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQETMoMi4qR9KjzW7jQIOPDsabOupfu94El633rwUCyiBEQf9-W" alt="contact us" /></span>
+    </div>
+    <div class="member">
+      <div class="person">
+        <div class="image"><img src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-1/p100x100/12919753_1088251581217179_2909902071871800474_n.jpg?oh=1cb84065644cf0b053028ed649ea82e3&oe=5862AFF4" alt="陳穎弘" /></div>
+        <div class="name">陳穎弘</div>
+      </div>
+      <div class="person">
+        <div class="image"><img src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-1/p100x100/12347893_919497841437447_8567437507618066713_n.jpg?oh=3714bbf7385cd61ab9ff6f42c2b41cd5&oe=5869840E" alt="林德昌" /></div>
+        <div class="name">林德昌</div>
+      </div>
+      <div class="person">
+        <div class="image"><img src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-1/c16.0.100.100/p100x100/216929_218088564872916_3326484_n.jpg?oh=58931996ec50641a5bf276dfc0664816&oe=589FB9D8" alt="李孫廷" /></div>
+        <div class="name">李孫廷</div>
+      </div>
+      <div class="person">
+        <div class="image"><img src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-1/p100x100/12439527_1131467063530070_199346658252819005_n.jpg?oh=b6bd014c87e7a8a2a9abbe7b7d90e63a&oe=589FC53B" alt="夏培瑄" /></div>
+        <div class="name">夏培瑄</div>
+      </div>
+      <div class="person">
+        <div class="image"><img src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-1/c0.28.100.100/p100x100/12108856_1009200822485894_2200685825035476188_n.jpg?oh=64c8efa3317339dd6f384f8f525b7a09&oe=5867E386" alt="黃芳雯" /></div>
+        <div class="name">黃芳雯</div>
+      </div>
+      <div class="person">
+        <div class="image"><img src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-1/p100x100/946200_801207586679092_274122980139025037_n.jpg?oh=cfbc95e8c1ea5ad5960f66baa41f2b67&oe=58A4A917" alt="朱文亞" /></div>
+        <div class="name">朱文亞</div>
+      </div>
+    </div>
+  </div>
+  <div class="ad">
+    <img class="ad" src="https://admd.yungching.com.tw/MATERIAL/22/14238603014.gif" alt="廣告" />
+  </div>
+</div>
+  <div id="feedback">
+<p>請填寫意見回饋讓我們改進!</p>
+
+<form id="feedbackForm" action="#" method="post">
+<table border="1">
+ 
+ <tr>
+  <th>姓名：</th>
+  <td><input type="text" name="name"></td>
+ </tr>
+
+<tr>
+  <th>聯絡信箱：</th>
+  <td><input type="email" name="email"></td>
+ </tr>
+
+<tr>
+  <th>意見回饋：</th>
+  <td>
+  <textarea name="feedbackmemo" rows="8" cols="50"></textarea>
+  </td>
+ </tr>
+  <div>
+ <input type="reset" name="清除重填">
+ <input type="submit" name="送出">
+</div>
+  </div>
+</body>
+</html>
