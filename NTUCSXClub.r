@@ -3,16 +3,13 @@ library(httr)
 library(rjson)
 library(httpuv)
 library(Rfacebook)
-token = "EAACEdEose0cBANhbD2girb1qtZCRbybx1t9BNDHCAZCZCD1q0HdVcN63vFPe9s2azvEHtJNsXzh5GyLqdiuLfsP9ztElxiZC19RzxBAS2RocySz3kGCYgbfxtkdjQFKPVbUJ1qMuwRwJHURVLtWQo9tZAKuJVhdJtk0RmcmZAUVwZDZD"
-
-"curl -i -X GET \
-https://graph.facebook.com/v2.8/620483011457064/members?access_token=EAACEdEose0cBANhbD2girb1qtZCRbybx1t9BNDHCAZCZCD1q0HdVcN63vFPe9s2azvEHtJNsXzh5GyLqdiuLfsP9ztElxiZC19RzxBAS2RocySz3kGCYgbfxtkdjQFKPVbUJ1qMuwRwJHURVLtWQo9tZAKuJVhdJtk0RmcmZAUVwZDZD"
+token = "EAACEdEose0cBAF3CZBZCl0iTmsdU4Pu0SFtqNmkFsZAxQZCq3S4CKUFiNdnpi4VE6uAdZCN7RLqddTMehDNmwSHTsRVxV5UhytdSRmb34fzAqYvFbmxjdEz6bhSThuiYFKvHZCZCX6gZBdX05ZBf5tQ9Bi463vVOW1ChrPdfE8ZCZAiZAwZDZD"
 
 preText = "https://graph.facebook.com/v2.8/"
-fbAPI = "me?fields=name,age_range,about,currency&access_token="
-url = paste0(preText, fbAPI, token)
-res = GET(url)
-out = matrix(unlist(content(res)))
+fbAPI = "620483011457064/memberslimit=500"
+url = paste0(preText, fbAPI)
+content <- callAPI(url=url, token=token)
+out = matrix(unlist(content(content)))
 
 my <- getUsers("me", token, private_info = TRUE)
 my$name
