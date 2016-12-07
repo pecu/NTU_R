@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\n# This is the server logic for a Shiny web application.\n# You can find out more about building applications with Shiny here:\n#\n# http://shiny.rstudio.com\n#\n\nlibrary(shiny)\nlibrary(stats)\n\nshinyServer(function(input, output) {\n\n  output$distPlot <- renderPlot({\n\n    # generate bins based on input$bins from ui.R\n    x    <- faithful[, 2]\n    bins <- seq(min(x), max(x), length.out = input$bins + 1)\n\n    # draw the histogram with the specified number of bins\n    hist(x, breaks = bins, col = 'darkgray', border = 'white')\n\n  })\n\n  output$randnumber <- renderPlot({\n    n = input$bins\n    getmean = input$mean\n    getvar = input$var\n    getnum = rnorm(n, mean = getmean, sd = getvar^0.5)\n    \n    plot(getnum)\n\n    \n  })\n})\n",
+    "created" : 1481122383571.000,
+    "dirty" : false,
+    "encoding" : "BIG5",
+    "folds" : "",
+    "hash" : "474289548",
+    "id" : "A164B6AF",
+    "lastKnownWriteTime" : 1481123425,
+    "last_content_update" : 1481123425056,
+    "path" : "C:/Users/pecu6/Desktop/RDemo/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

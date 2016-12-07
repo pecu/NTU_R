@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\n# This is the user-interface definition of a Shiny web application.\n# You can find out more about building applications with Shiny here:\n#\n# http://shiny.rstudio.com\n#\n\nlibrary(shiny)\n\nshinyUI(fluidPage(\n\n  # Application title\n  titlePanel(\"Old Faithful Geyser Data\"),\n\n  # Sidebar with a slider input for number of bins\n  sidebarLayout(\n    sidebarPanel(\n      sliderInput(\"bins\",\n                  \"Number of bins:\",\n                  min = 1,\n                  max = 50,\n                  value = 30),\n      numericInput(\"mean\",\n                   \"Please input mean:\",\n                   value = 0),\n      numericInput(\"var\",\n                   \"Please input var:\",\n                   value = 1)\n    ),\n\n    # Show a plot of the generated distribution\n    mainPanel(\n      plotOutput(\"distPlot\"),\n      plotOutput(\"randnumber\")\n    )\n  )\n))\n",
+    "created" : 1481122382344.000,
+    "dirty" : false,
+    "encoding" : "BIG5",
+    "folds" : "",
+    "hash" : "1663294892",
+    "id" : "94409BB2",
+    "lastKnownWriteTime" : 1481122649,
+    "last_content_update" : 1481122649020,
+    "path" : "C:/Users/pecu6/Desktop/RDemo/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
