@@ -39,14 +39,20 @@ shinyUI(fluidPage(
                     value = 25.015545),
        textInput("name",
                  label = h3("location name"),
-                 value = 'NTU')
+                 value = 'NTU'),
+       checkboxGroupInput("Area", label = h2("administrative district"), 
+                          choices = list("Starbucks"="star","COSMED"="cosmed","MRT"="mrt"),
+                          selected = "cosmed")
     ),
     
     # Show a plot of the generated distribution
     mainPanel(
        plotOutput("distPlot"),
        plotOutput("meanAndvar"),
-       leafletOutput("map")
+       leafletOutput("map"),
+       leafletOutput("mymap", height="600px"),
+       textOutput("mapcheck"),
+       tableOutput("store")
     )
   )
 ))
