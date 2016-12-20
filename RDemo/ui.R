@@ -42,7 +42,11 @@ shinyUI(fluidPage(
                  value = 'NTU'),
        checkboxGroupInput("Area", label = h2("administrative district"), 
                           choices = list("Starbucks"="star","COSMED"="cosmed","MRT"="mrt"),
-                          selected = "cosmed")
+                          selected = "cosmed"),
+       checkboxGroupInput("mapcheck",
+                          "select a store name",
+                          choices = list("星巴克" = "star",
+                                         "康是美" = "cosmed"))
     ),
     
     # Show a plot of the generated distribution
@@ -52,7 +56,9 @@ shinyUI(fluidPage(
        leafletOutput("map"),
        leafletOutput("mymap", height="600px"),
        textOutput("mapcheck"),
-       tableOutput("store")
+       tableOutput("store"),
+       tableOutput("showTable"),
+       leafletOutput("showMap")
     )
   )
 ))
