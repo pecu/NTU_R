@@ -9,6 +9,7 @@
 
 library(shiny)
 library(leaflet)
+source("source.r")
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output, session) {
@@ -40,6 +41,26 @@ shinyServer(function(input, output, session) {
       setView(lng, lat, zoom = 17) %>% 
       addMarkers(lng, lat, popup = input$name)
     NTUmap
+  })
+   
+  output$showTable <- renderTable({
+    showTableId = which(getData$tag == input$mapcheck)
+    print( getData[showTableId,] )
+  })
+
+  output$showMap <- renderLeaflet({
+    showTableId = which(getData$tag == input$mapcheck)
+    
+    lng = getData$Response_X[showTableId]
+    lat = getData$Response_Y[showTableId]
+    
+    markers <- leaflet() %>% 
+               addTiles() %>%
+               setView(getData$Response_X[1], 
+                       getData$Response_Y[1], zoom = 10) %>%
+               addMarkers(lng, lat)
+    
+    markers
   })
 
 })
