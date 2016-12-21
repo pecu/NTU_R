@@ -1,65 +1,38 @@
 
+# This is the user-interface definition of a Shiny web application.
+# You can find out more about building applications with Shiny here:
 #
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-# 
-#    http://shiny.rstudio.com/
+# http://shiny.rstudio.com
 #
 
 library(shiny)
 library(leaflet)
 
-# Define UI for application that draws a histogram
 shinyUI(fluidPage(
-  
+
   # Application title
   titlePanel("Old Faithful Geyser Data"),
-  
-  # Sidebar with a slider input for number of bins 
+
+  # Sidebar with a slider input for number of bins
   sidebarLayout(
     sidebarPanel(
-       sliderInput("bins",
-                   "Number of bins:",
-                   min = 1,
-                   max = 50,
-                   value = 30),
-       numericInput("mean", 
-                    label = h3("mean input"), 
-                    value = 0),
-       numericInput("var", 
-                    label = h3("var input"), 
-                    value = 1),
-       numericInput("lng", 
-                    label = h3("lng input"), 
-                    value = 121.537572),
-       numericInput("lat", 
-                    label = h3("lat input"), 
-                    value = 25.015545),
-       textInput("name",
-                 label = h3("location name"),
-                 value = 'NTU'),
-       checkboxGroupInput("Area", label = h2("administrative district"), 
-                          choices = list("Starbucks"="star","COSMED"="cosmed","MRT"="mrt"),
-                          selected = "cosmed"),
-       checkboxGroupInput("mapcheck",
-                          "select a store name",
-                          choices = list("星巴克" = "star",
-                                         "康是美" = "cosmed"))
+      sliderInput("bins",
+                  "Number of bins:",
+                  min = 1,
+                  max = 50,
+                  value = 30),
+      checkboxGroupInput("stores",
+                         h2("please select a store type:"),
+                         choices = list("post" = "post", "star" = "star"),
+                         selected = "post")
     ),
-    
+
     # Show a plot of the generated distribution
     mainPanel(
-       plotOutput("distPlot"),
-       plotOutput("meanAndvar"),
-       leafletOutput("map"),
-       leafletOutput("mymap", height="600px"),
-       textOutput("mapcheck"),
-       tableOutput("store"),
-       tableOutput("showTable"),
-       leafletOutput("showMap")
+      plotOutput("distPlot"),
+      leafletOutput("showmap"),
+      textOutput("testGet"),
+      tableOutput("showstores")
     )
   )
 ))
-
