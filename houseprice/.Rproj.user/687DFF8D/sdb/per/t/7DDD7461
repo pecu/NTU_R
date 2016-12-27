@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(shiny)\n\nvars <- colnames(houseprice)\n\nfunction(input, output, session) {\n  \n  output$histCentile <- renderPlot({\n    id   <- which( vars == input$feature )\n    x    <- houseprice[, id]\n    bins <- seq(min(x), max(x), length.out = input$bins + 1)\n    hist(x, breaks = bins, col = 'darkgray', border = 'white')\n  })\n  \n  output$myMap <- renderLeaflet({\n      leaflet() %>% addTiles() %>%\n      setView(lng = houseprice$long[1], lat = houseprice$lat[1], zoom = 11)\n  })\n\n  # This observer is responsible for maintaining the circles and legend,\n  # according to the variables the user has chosen to map to color and size.\n  observe({\n      id   <- which( vars == input$feature )\n      col  <- palette()\n      \n      radius <- ifelse(houseprice[, id] >= mean(houseprice[, id]), 300, 30)\n    \n      leafletProxy(\"myMap\", data = houseprice) %>%\n      clearShapes() %>%\n      addCircles(~long, ~lat, radius=radius,\n                 stroke=FALSE, fillOpacity=0.4, fillColor=col[id])\n  })\n  \n  selectedData <- reactive({\n    idx   <- which( vars == input$featureX )\n    idy   <- which( vars == input$featureY )\n    houseprice[, c(idx, idy)]\n  })\n  \n  clusters <- reactive({\n    kmeans(selectedData(), input$clusters)\n  })\n  \n  output$kmeans <- renderPlot({\n    palette(c(\"#E41A1C\", \"#377EB8\", \"#4DAF4A\", \"#984EA3\",\n              \"#FF7F00\", \"#FFFF33\", \"#A65628\", \"#F781BF\", \"#999999\"))\n    \n    par(mar = c(5.1, 4.1, 0, 1))\n    plot(selectedData(),\n         col = clusters()$cluster,\n         pch = 20, cex = 3)\n    points(clusters()$centers, pch = 4, cex = 4, lwd = 4)\n  })\n}\n",
+    "created" : 1482828661459.000,
+    "dirty" : false,
+    "encoding" : "BIG5",
+    "folds" : "",
+    "hash" : "3947439535",
+    "id" : "7DDD7461",
+    "lastKnownWriteTime" : 1482831469,
+    "last_content_update" : 1482831469508,
+    "path" : "C:/Users/pecu6/Desktop/houseprice/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

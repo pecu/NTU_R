@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(shiny)\nlibrary(leaflet)\nsource(\"readdata.R\")\n\nvars <- colnames(houseprice)\n\nnavbarPage(\"house price\",\n           \n  tabPanel(\"Interactive map\",\n    leafletOutput(\"myMap\", width=\"100%\", height=\"1000\"),\n    absolutePanel(fixed = TRUE, draggable = TRUE, \n                  top = 200, left = 20, right = \"auto\", \n                  bottom = \"auto\", width = 330, height = \"auto\",\n                  h2(\"Feature Selects\"),\n                  selectInput(\"feature\", \"Features\", vars[3:7]),\n                  sliderInput(\"bins\", \"\",\n                              min = 0, max = 100, value = 25),\n                  plotOutput(\"histCentile\", height = 200)\n    )\n  ),\n  tabPanel(\"K means\",\n    selectInput(\"featureX\", \"x Features\", vars[3:7]),\n    selectInput(\"featureY\", \"Y Features\", vars[3:7]),\n    sliderInput(\"clusters\", \"\",\n               min = 1, max = 10, value = 5),\n    plotOutput(\"kmeans\")\n  )\n)",
+    "created" : 1482828661280.000,
+    "dirty" : false,
+    "encoding" : "BIG5",
+    "folds" : "",
+    "hash" : "2924989835",
+    "id" : "E20A9033",
+    "lastKnownWriteTime" : 1482831455,
+    "last_content_update" : 1482831455324,
+    "path" : "C:/Users/pecu6/Desktop/houseprice/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

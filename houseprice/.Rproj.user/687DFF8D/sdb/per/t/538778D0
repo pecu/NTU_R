@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "houseprice <- read.csv(\"./data/kc_house_data.csv\")",
+    "created" : 1482829033220.000,
+    "dirty" : false,
+    "encoding" : "BIG5",
+    "folds" : "",
+    "hash" : "229707926",
+    "id" : "538778D0",
+    "lastKnownWriteTime" : 1482829059,
+    "last_content_update" : 1482829059596,
+    "path" : "C:/Users/pecu6/Desktop/houseprice/readdata.R",
+    "project_path" : "readdata.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
