@@ -1,11 +1,29 @@
 library(shiny)
 library(leaflet)
+library(ggvis)
+
 source("readdata.R")
 
 vars <- colnames(houseprice)
 
 navbarPage("house price",
-           
+  tabPanel("new movie test",
+    fluidPage(
+      h2("new page"),
+      fluidRow(
+        column(3,
+        wellPanel(
+               sliderInput("totalC", " Total energy consumption in billion BTU in given year",
+                           min = 2010, max = 2014, step = 1, value = 2010),
+               sliderInput("totalP", "Total energy production in billion BTU in given year", 
+                           min = 2010, max = 2014, step = 1, value = 2010)        
+               )),
+        column(9, 
+               plotOutput("plot1")
+      )
+    )
+  )),
+                    
   tabPanel("Interactive map",
     leafletOutput("myMap", width="100%", height="1000"),
     absolutePanel(fixed = TRUE, draggable = TRUE, 
@@ -18,6 +36,7 @@ navbarPage("house price",
                   plotOutput("histCentile", height = 200)
     )
   ),
+  
   tabPanel("K means",
     selectInput("featureX", "x Features", vars[3:7]),
     selectInput("featureY", "Y Features", vars[3:7]),
