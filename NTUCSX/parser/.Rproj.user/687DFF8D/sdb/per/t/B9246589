@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"parser\"\nauthor: \"Pecu\"\ndate: \"2017年3月22日\"\noutput: html_document\n---\n\n```{r eval=FALSE}\nrm(list=ls(all.names=TRUE))\nlibrary(XML)\nlibrary(RCurl)\nlibrary(httr)\n\nurlPath <- \"https://www.ptt.cc/bbs/movie/index.html\"\ntemp    <- getURL(urlPath, encoding = \"big5\")\nxmldoc  <- htmlParse(temp)\ntitle   <- xpathSApply(xmldoc, \"//div[@class=\\\"title\\\"]\", xmlValue)\ntitle   <- gsub(\"\\n\", \"\", title)\ntitle   <- gsub(\"\\t\", \"\", title)\nemptyId <- which(title == \"(本文已被刪除) [brukling]\")\ntitle   <- title[-emptyId]\nauthor  <- xpathSApply(xmldoc, \"//div[@class='author']\", xmlValue)\nempty   <- author == \"-\"\nauthor  <- author[!empty]\ndate    <- xpathSApply(xmldoc, \"//div[@class='date']\", xmlValue)\ndate    <- date[-emptyId]\nresponse<- xpathSApply(xmldoc, \"//div[@class='nrec']\", xmlValue)\nresponse<- response[-emptyId]\npath    <- xpathSApply(xmldoc, \"//div[@class='title']/a//@href\")\nalldata <- data.frame(title, author, path, date, response)\n\nwrite.table(alldata, \"pttmovie.csv\")\n```\n```{r eval=TRUE}\nlibrary(knitr)\ndata = read.table(\"pttmovie.csv\")\nkable(data)\n```\n",
+    "created" : 1490157975613.000,
+    "dirty" : false,
+    "encoding" : "BIG5",
+    "folds" : "",
+    "hash" : "875157867",
+    "id" : "B9246589",
+    "lastKnownWriteTime" : 1490158251,
+    "last_content_update" : 1490158251182,
+    "path" : "C:/Users/pecu6/Desktop/parser/parser.Rmd",
+    "project_path" : "parser.Rmd",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
